@@ -7,7 +7,7 @@ const Header = () => {
 		<header className="header-container">
 			<nav className="nav-list">
 				<a href="/">
-					<h2>Playground</h2>
+					<h2>Playground@Sook</h2>
 				</a>
 
 				<div>

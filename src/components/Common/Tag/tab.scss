@@ -1,0 +1,18 @@
+.tab-container {
+	position: sticky;
+	top: 100px;
+	width: 200px;
+	height: fit-content;
+	box-shadow: 0 1px 2px 0 #c2c2c2;
+	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.tag-item {
+	width: fit-content;
+	padding: 4px 8px;
+	border-radius: 4px;
+	border: 0.5px solid #0284c7;
+}

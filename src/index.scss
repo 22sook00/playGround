@@ -11,6 +11,8 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+p,
+span,
 h1,
 h2,
 h3,
@@ -21,4 +23,12 @@ h5 {
 a {
 	text-decoration: none;
 	color: #334155;
+}
+button {
+	background: none;
+	cursor: pointer;
+}
+button:focus,
+button:active {
+	outline: none;
 }

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Header from "../Header/Header";
+import Header from "../Headers/Header";
 import "./layout.scss";
 
 interface LayoutProps {
