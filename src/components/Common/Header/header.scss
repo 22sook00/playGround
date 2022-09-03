@@ -1,0 +1,26 @@
+.header-container {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px 40px;
+	box-shadow: 0 1px 2px 0 #c2c2c2;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	background-color: #ffffff;
+}
+.nav-list {
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	> div {
+		display: flex;
+		gap: 8px;
+		text-transform: uppercase;
+		font-size: 14px;
+	}
+	> a > h2 {
+		font-size: 20px;
+		font-weight: 500;
+	}
+}

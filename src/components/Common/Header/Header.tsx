@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
+import "./header.scss";
 const Header = () => {
-  return (
-    <header>Header</header>
-  )
-}
+	return (
+		<header className="header-container">
+			<nav className="nav-list">
+				<a href="/">
+					<h2>Playground</h2>
+				</a>
 
-export default Header
+				<div>
+					<Link to="/css">css</Link>
+					<Link to="/server">server</Link>
+					<Link to="/module">module</Link>
+				</div>
+			</nav>
+		</header>
+	);
+};
+
+export default Header;
