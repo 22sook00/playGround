@@ -11,7 +11,7 @@ const Header = () => {
 				</a>
 
 				<div>
-					<Link to="/css">css</Link>
+					<Link to="/style">style</Link>
 					<Link to="/server">server</Link>
 					<Link to="/module">module</Link>
 				</div>

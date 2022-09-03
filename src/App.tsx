@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.scss";
-import Header from "./components/Common/Header/Header";
 import Layout from "./components/Common/Layout/Layout";
-import CssPage from "./pages/CssPage";
 
 function App() {
 	return (

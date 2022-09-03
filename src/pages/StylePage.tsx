@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Common/Layout/Layout";
 
-const CssPage = () => {
-	return <Layout>css</Layout>;
+const StylePage = () => {
+	return <Layout>StylePage</Layout>;
 };
 
-export default CssPage;
+export default StylePage;
