@@ -1,15 +1,22 @@
 import React, { FC } from "react";
-import "./tab.scss";
+import { StyleProps } from "../../../pages/StylePage";
+import "./tag.scss";
 
 interface TagProps {
-	tagArray: { id: number; type: string }[];
+	tagArray: StyleProps[];
+	handleClickTab: (types: StyleProps) => void;
 }
-const Tag: FC<TagProps> = ({ tagArray }) => {
+const Tag: FC<TagProps> = ({ tagArray, handleClickTab }) => {
+	//TODO select 되면 #0284c7 로 변경하기
 	return (
-		<aside className="tab-container">
+		<aside className="tag-container">
 			{tagArray.map((types) => {
 				return (
-					<button className="tag-item" key={types.id}>
+					<button
+						onClick={() => handleClickTab(types)}
+						className="tag-item"
+						key={types.id}
+					>
 						{types.type}
 					</button>
 				);

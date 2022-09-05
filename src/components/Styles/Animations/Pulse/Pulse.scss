@@ -1,0 +1,41 @@
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+.pulse-container {
+	border: 0.2px solid #e5e7eb;
+	height: 7rem;
+	border-radius: 8px;
+	min-width: 420px;
+	max-width: 900px;
+	padding: 40px 20px;
+}
+.pulse-animation-wrapper {
+	display: flex;
+	margin-left: 1rem;
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-circle-item {
+	border-radius: 100%;
+	background-color: #e2e8f0;
+	width: 70px;
+	height: 70px;
+}
+.pulse-each-items {
+	height: 8px;
+	border-radius: 4px;
+	background-color: #e2e8f0;
+}
+.pulse-space-wrapper {
+	margin-left: 1.5rem;
+	flex: 1 1 0%;
+	gap: 8px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}

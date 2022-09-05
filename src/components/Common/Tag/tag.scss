@@ -1,7 +1,6 @@
-.tab-container {
+.tag-container {
 	position: sticky;
 	top: 100px;
-	width: 200px;
 	height: fit-content;
 	box-shadow: 0 1px 2px 0 #c2c2c2;
 	padding: 20px;
@@ -12,7 +11,9 @@
 }
 .tag-item {
 	width: fit-content;
-	padding: 4px 8px;
+	height: fit-content;
+	padding: 4px 10px;
 	border-radius: 4px;
-	border: 0.5px solid #0284c7;
+	color: #9ca3af;
+	border: 0.5px solid #9ca3af;
 }
