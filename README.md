@@ -1,7 +1,2 @@
-# Playground for self practice
+# 🛝 Playground 🛝 based on REACT for self practice 
 Try to make a module without library. 
-
-## todo
-[ ] carousel
-[ ] calendar 
-[ ] library -- scss 
