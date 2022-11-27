@@ -58,8 +58,6 @@ function Carousel({
 		setIsAnimationEnd(true);
 	};
 
-	console.log(isAnimationEnd, currentIndex);
-
 	return (
 		<div className={"container"}>
 			<div className={"imageContainer"} {...restProps}>
