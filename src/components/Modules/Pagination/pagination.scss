@@ -1,9 +1,38 @@
+.pagination-container {
+	margin: 40px 0;
+	display: flex;
+	height: fit-content;
+	align-items: center;
+}
+.pagination-list {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 24px;
+	padding: 0;
+	> li {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		:hover {
+			transition: all 0.3s;
+			color: cornflowerblue;
+			font-weight: 500;
+		}
+	}
+}
 .pageIndex {
 	font-size: 18px;
 }
 .current-index {
 	font-size: 18px;
 	font-weight: 700;
+	background-color: lightseagreen;
+	color: #fff;
+	border-radius: 50%;
 }
 .pagination-container {
 	margin: 24px 0;
