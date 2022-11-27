@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./radio.scss";
 const dummyData = [
 	{ id: 1, title: "email", type: "contact" },
@@ -7,6 +7,8 @@ const dummyData = [
 ];
 
 const Radio = () => {
+	const [checkedItem, setCheckedItem] = useState<string>(dummyData[0].title);
+	console.log("checkedItem?", checkedItem);
 	return (
 		<section className="radio-section">
 			{dummyData.map((radio) => {
@@ -18,8 +20,9 @@ const Radio = () => {
 							key={radio.id}
 							type="radio"
 							name={radio.type}
-							value={radio.title}
-							checked
+							value={checkedItem}
+							checked={radio.title === checkedItem ?? false}
+							onChange={() => setCheckedItem(radio.title)}
 						/>
 						<label htmlFor={`radio-${radio.id}`}>{radio.title}</label>
 					</div>
