@@ -3,7 +3,7 @@ import SubHeader from "../components/Common/Headers/SubHeader";
 import Layout from "../components/Common/Layout/Layout";
 import Tag from "../components/Common/Tag/Tag";
 import Animations from "../components/Styles/Animations/Animations";
-import Bounce from "../components/Styles/Animations/Bounce";
+import Bounce from "../components/Styles/Animations/Bounce/Bounce";
 import Ping from "../components/Styles/Animations/Ping/Ping";
 import Pulse from "../components/Styles/Animations/Pulse/Pulse";
 import Spin from "../components/Styles/Animations/Spin/Spin";
