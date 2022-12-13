@@ -31,7 +31,10 @@ export const ImageUpload = () => {
 		handleFile(imageFile);
 	};
 
-	console.log("img", image);
+	const handleDelete = (img) => {
+		const deleteImg = image.filter((el) => el.url !== img.url);
+		setImage(deleteImg);
+	};
 
 	return (
 		<div className="wrapper">
@@ -74,7 +77,7 @@ export const ImageUpload = () => {
 					return (
 						<div key={idx} className="preview-image">
 							<img src={img.url} alt="image-url" />
-							<div className="img-delete">
+							<div onClick={() => handleDelete(img)} className="img-delete">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
