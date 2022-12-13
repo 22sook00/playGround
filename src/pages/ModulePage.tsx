@@ -4,6 +4,7 @@ import Layout from "../components/Common/Layout/Layout";
 import Tag from "../components/Common/Tag/Tag";
 import Calendar from "../components/Modules/Calendar/Calendar";
 import Carousel from "../components/Modules/Carousel/Carousel";
+import DragnDrop from "../components/Modules/DragnDrop/DragnDrop";
 import Pagination from "../components/Modules/Pagination/Pagination";
 import Radio from "../components/Modules/Radio/Radio";
 
@@ -23,6 +24,7 @@ const ModulePage = () => {
 		{ id: 2, type: "carousel", component: <Carousel /> },
 		{ id: 3, type: "calendar", component: <Calendar /> },
 		{ id: 4, type: "radio", component: <Radio /> },
+		{ id: 5, type: "dragndrop", component: <DragnDrop /> },
 	];
 
 	const [selectMenu, setSelectMenu] = useState<ModuleProps>(moduleData[0]);
