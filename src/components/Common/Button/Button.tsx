@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { FC } from "react";
+import "./button.scss";
+import classNames from "classnames";
 
-const Button = () => {
-  return (
-    <div>Button</div>
-  )
+interface ButtonProps {
+	children: React.ReactNode;
+	size?: "small" | "medium" | "large" | "full" | "custom";
+	color?: "primary" | "secondary" | "light";
+	outline?: boolean;
 }
 
-export default Button
+const Button: FC<ButtonProps> = ({
+	children,
+	size,
+	color,
+	outline,
+	...rest
+}) => {
+	return (
+		<button
+			className={classNames("Button", size, color, { outline })}
+			{...rest}
+		>
+			{children}
+		</button>
+	);
+};
+
+export default Button;

@@ -1,3 +1,11 @@
+$POINTDEFAULT: rgb(167, 20, 181);
+$BLUE: #228be6; // 주석 선언
+$GRAY: #999999;
+$LIGHTGRAY: #f9f9fb;
+$BORDERCOLOR: #ececec;
+$BORDERDEFAULT: 1px solid $BORDERCOLOR;
+$TEXTDEFAULT: #334155;
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,7 +13,7 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: #334155;
+	color: $TEXTDEFAULT;
 }
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -22,7 +30,7 @@ h5 {
 }
 a {
 	text-decoration: none;
-	color: #334155;
+	color: $TEXTDEFAULT;
 }
 button {
 	background: unset;

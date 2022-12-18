@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import Button from "../../Common/Button/Button";
 import Dropdown from "../../Common/Dropdown/Dropdown";
 import CartOptionBox from "./CarOptiontBox";
 
@@ -79,6 +80,22 @@ const Cart = () => {
 					</div>
 				);
 			})}
+			<div style={{ display: "flex" }}>
+				<Button size="small" color="primary">
+					장바구니 담기
+				</Button>
+				<Button size="medium" color="secondary">
+					장바구니 담기
+				</Button>
+				<Button size="large" color="light">
+					장바구니 담기
+				</Button>
+			</div>
+			<div>
+				<Button size="full" color="secondary" outline>
+					취소
+				</Button>
+			</div>
 		</div>
 	);
 };

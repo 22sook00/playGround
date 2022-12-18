@@ -1,0 +1,75 @@
+@import "../../../index.scss";
+
+@mixin button-color($color) {
+	background: $color;
+	&:hover {
+		background: lighten($color, 10%);
+	}
+	&:active {
+		background: darken($color, 10%);
+	}
+	&.outline {
+		color: $color;
+		background: none;
+		border: 1px solid $color;
+		&:hover {
+			background: $color;
+			color: white;
+		}
+	}
+}
+.Button {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+	outline: none;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin: 30px 0;
+
+	// 사이즈 관리
+	&.large {
+		height: 3.5rem;
+		font-size: 1.25rem;
+		padding: 0 2rem;
+	}
+
+	&.medium {
+		height: 2.25rem;
+		font-size: 1rem;
+	}
+
+	&.small {
+		height: 1.75rem;
+		font-size: 0.875rem;
+	}
+	&.full {
+		height: 3.5rem;
+		width: 100%;
+		font-size: 20px;
+	}
+
+	// 색상 관리
+	&.primary {
+		@include button-color($POINTDEFAULT);
+	}
+	&.secondary {
+		@include button-color($BLUE);
+	}
+	&.light {
+		@include button-color($LIGHTGRAY);
+		color: $GRAY;
+	}
+
+	& + & {
+		margin-left: 1rem;
+	}
+	.buttons + .buttons {
+		margin-top: 1rem;
+	}
+}
