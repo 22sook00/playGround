@@ -8,7 +8,6 @@ const dummyData = [
 
 const Radio = () => {
 	const [checkedItem, setCheckedItem] = useState<string>(dummyData[0].title);
-	console.log("checkedItem?", checkedItem);
 	return (
 		<section className="radio-section">
 			{dummyData.map((radio) => {
