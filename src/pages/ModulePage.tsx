@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Dropdown from "../components/Common/Dropdown/Dropdown";
 import SubHeader from "../components/Common/Headers/SubHeader";
 import Layout from "../components/Common/Layout/Layout";
 import Tag from "../components/Common/Tag/Tag";
@@ -8,7 +7,7 @@ import Carousel from "../components/Modules/Carousel/Carousel";
 import Cart from "../components/Modules/Cart/Cart";
 import DragnDrop from "../components/Modules/DragnDrop/DragnDrop";
 import Pagination from "../components/Modules/Pagination/Pagination";
-import Radio from "../components/Modules/Radio/Radio";
+import Accordion from "../components/Modules/Accordion/Accordion";
 
 export interface ModuleProps {
 	id: number;
@@ -25,7 +24,7 @@ const ModulePage = () => {
 		},
 		{ id: 2, type: "carousel", component: <Carousel /> },
 		{ id: 3, type: "calendar", component: <Calendar /> },
-		{ id: 4, type: "radio", component: <Radio /> },
+		{ id: 4, type: "accordion", component: <Accordion /> },
 		{ id: 5, type: "dragndrop", component: <DragnDrop /> },
 		{ id: 6, type: "cart", component: <Cart /> },
 	];

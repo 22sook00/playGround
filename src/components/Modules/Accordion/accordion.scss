@@ -1,0 +1,44 @@
+@import "../../../index.scss";
+
+.accordion-wrapper {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.accordion {
+	width: 500px;
+}
+.item {
+	background: #f9f9fb;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: all 0.3s;
+	background-color: #fff;
+	border-radius: 8px;
+	color: $BLUE;
+	font-size: 16px;
+	margin-bottom: 10px;
+	padding: 10px;
+	//&:hover {
+	//	background: #fafbff;
+	//}
+}
+.contents {
+	font-size: 14px;
+	letter-spacing: 1.5;
+	line-height: 2;
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+}
+.contents.show {
+	height: auto;
+	max-height: 999px;
+	transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+}
