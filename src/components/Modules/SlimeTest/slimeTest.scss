@@ -1,0 +1,13 @@
+.slime-container {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 30px;
+}
+.slime-left-box {
+	border: 1px solid #eaeaea;
+	padding: 20px;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

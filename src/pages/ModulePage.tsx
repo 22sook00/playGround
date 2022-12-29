@@ -8,6 +8,7 @@ import Cart from "../components/Modules/Cart/Cart";
 import DragnDrop from "../components/Modules/DragnDrop/DragnDrop";
 import Pagination from "../components/Modules/Pagination/Pagination";
 import Accordion from "../components/Modules/Accordion/Accordion";
+import SlimeTest from "components/Modules/SlimeTest/SlimeTest";
 
 export interface ModuleProps {
 	id: number;
@@ -17,16 +18,17 @@ export interface ModuleProps {
 
 const ModulePage = () => {
 	const moduleData: ModuleProps[] = [
-		{
-			id: 1,
-			type: "pagination",
-			component: <Pagination />,
-		},
+		{ id: 1, type: "slimeTest", component: <SlimeTest /> },
 		{ id: 2, type: "carousel", component: <Carousel /> },
 		{ id: 3, type: "calendar", component: <Calendar /> },
 		{ id: 4, type: "accordion", component: <Accordion /> },
 		{ id: 5, type: "dragndrop", component: <DragnDrop /> },
 		{ id: 6, type: "cart", component: <Cart /> },
+		{
+			id: 7,
+			type: "pagination",
+			component: <Pagination />,
+		},
 	];
 
 	const [selectMenu, setSelectMenu] = useState<ModuleProps>(moduleData[0]);
