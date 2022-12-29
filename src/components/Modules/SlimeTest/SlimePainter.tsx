@@ -18,7 +18,7 @@ const SlimePainter: FC<SlimePainterProps> = ({ copy, setFocus }) => {
 	);
 
 	return (
-		<div>
+		<div className="slime-painter-container">
 			{copy.map((el, idx) => {
 				return (
 					<div key={idx}>

@@ -43,8 +43,10 @@ const SlimeTest = () => {
 			</section>
 			<section>
 				<Button
+					size="large"
 					color={copy.length ? "primary" : "light"}
 					disabled={!copy.length}
+					outline
 					onClick={handleChangeText}
 				>
 					변경버튼
