@@ -9,6 +9,7 @@ import DragnDrop from "../components/Modules/DragnDrop/DragnDrop";
 import Pagination from "../components/Modules/Pagination/Pagination";
 import Accordion from "../components/Modules/Accordion/Accordion";
 import SlimeTest from "components/Modules/SlimeTest/SlimeTest";
+import ScrollTo from "components/Modules/ScrollTo/ScrollTo";
 
 export interface ModuleProps {
 	id: number;
@@ -18,7 +19,7 @@ export interface ModuleProps {
 
 const ModulePage = () => {
 	const moduleData: ModuleProps[] = [
-		{ id: 1, type: "slimeTest", component: <SlimeTest /> },
+		{ id: 1, type: "scrollTo", component: <ScrollTo /> },
 		{ id: 2, type: "carousel", component: <Carousel /> },
 		{ id: 3, type: "calendar", component: <Calendar /> },
 		{ id: 4, type: "accordion", component: <Accordion /> },
@@ -29,6 +30,7 @@ const ModulePage = () => {
 			type: "pagination",
 			component: <Pagination />,
 		},
+		{ id: 8, type: "slimeTest", component: <SlimeTest /> },
 	];
 
 	const [selectMenu, setSelectMenu] = useState<ModuleProps>(moduleData[0]);

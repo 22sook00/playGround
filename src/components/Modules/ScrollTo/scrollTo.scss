@@ -1,0 +1,32 @@
+.scroll-container {
+	//border: 2px solid #eaeaea;
+	border-radius: 8px;
+	//height: 500px;
+	//overflow: scroll;
+	padding: 20px 0;
+	position: relative;
+	border: 3px solid;
+}
+.scroll-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	> div {
+		background-color: rgb(31, 74, 153);
+		color: white;
+		border-radius: 8px;
+		width: 100px;
+		height: 100px;
+		font-size: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+.button-wrapper {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+}
