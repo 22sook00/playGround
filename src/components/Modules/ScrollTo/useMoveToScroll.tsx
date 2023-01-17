@@ -6,7 +6,6 @@ const useMoveToScroll = () => {
 		element.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 	};
 	return { element, onMoveToElement };
-	return <div>useMoveToScroll</div>;
 };
 
 export default useMoveToScroll;
