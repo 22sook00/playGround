@@ -24,5 +24,5 @@ export const useThemeObserver = (
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	return [isRef, onMoveToElement];
+	return [isRef];
 };
