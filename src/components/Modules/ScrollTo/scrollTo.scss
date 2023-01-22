@@ -1,6 +1,14 @@
 html {
 	scroll-behavior: smooth;
 }
+form {
+	div {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: center;
+		gap: 8px;
+	}
+}
 .scroll-container {
 	border-radius: 8px;
 	position: relative;

@@ -1,0 +1,18 @@
+.input-wrapper {
+	height: 32px;
+	padding: 4px 8px;
+	border: 1px solid #e4e5eb;
+	border-radius: 8px;
+	transition: all 0.3s;
+	color: #353637;
+	&:hover {
+		border: 1px solid #cecdd4;
+	}
+	&:active,
+	&:focus {
+		outline: none;
+	}
+	@media (max-width: 767px) {
+		height: 32px;
+	}
+}

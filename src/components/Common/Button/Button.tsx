@@ -9,6 +9,7 @@ interface ButtonProps {
 	outline?: boolean;
 	onClick?: any;
 	disabled?: boolean;
+	type?: "submit" | "button";
 }
 
 const Button: FC<ButtonProps> = ({
@@ -17,6 +18,7 @@ const Button: FC<ButtonProps> = ({
 	color = "primary",
 	outline,
 	onClick,
+	type = "button",
 	disabled = false,
 	...rest
 }) => {
@@ -25,6 +27,7 @@ const Button: FC<ButtonProps> = ({
 			className={classNames("Button", size, color, { outline })}
 			onClick={onClick}
 			disabled={disabled}
+			type={type}
 			{...rest}
 		>
 			{children}
