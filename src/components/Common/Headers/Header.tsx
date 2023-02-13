@@ -14,6 +14,7 @@ const Header = () => {
 					<Link to="/style">style</Link>
 					<Link to="/server">server</Link>
 					<Link to="/module">module</Link>
+					<Link to="/algorithm">algorithm</Link>
 				</div>
 			</nav>
 		</header>
