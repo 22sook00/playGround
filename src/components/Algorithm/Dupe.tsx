@@ -5,14 +5,15 @@ interface oneDimensionalArrProps {
 	name: string;
 	type: string;
 }
-const oneDimensionalArr: oneDimensionalArrProps[] = [
-	{ name: "abc", type: "에이비씨1" },
-	{ name: "def", type: "디이에프1" },
-	{ name: "abc", type: "에이비씨2" },
-	{ name: "abc", type: "에이비씨3" },
-	{ name: "ghi", type: "쥐에이치아이" },
-	{ name: "def", type: "디이에프2" },
-];
+//const oneDimensionalArr: oneDimensionalArrProps[] = [
+//	{ name: "abc", type: "에이비씨1" },
+//	{ name: "def", type: "디이에프1" },
+//	{ name: "abc", type: "에이비씨2" },
+//	{ name: "abc", type: "에이비씨3" },
+//	{ name: "ghi", type: "쥐에이치아이" },
+//	{ name: "def", type: "디이에프2" },
+//];
+const oneDimensionalArr: string[] = ["abc", "def", "abc", "abc", "ghi", "def"];
 const twoDimensionalArr: twoDimensionalArrProps[] = [
 	["abc", { type: "에이비씨1" }],
 	["def", { type: "디이에프1" }],
@@ -23,7 +24,18 @@ const twoDimensionalArr: twoDimensionalArrProps[] = [
 ];
 //const objData = [["abc"], ["def"], ["abc"], ["abc"], ["ghi"], ["def"]];
 const Dupe = () => {
+	const [oneDimensional, setOneDimensional] = useState<any>([]);
 	const [twoDimensional, setTwoDimensional] = useState<any>([]);
+
+	useEffect(() => {
+		//filter 이용하여 해당 indexOf 와 idx 가 일치하는 요소로 중복제거하기
+		const filtering = oneDimensionalArr.filter((el: any, idx: number) => {
+			console.log(el.name);
+			return oneDimensionalArr.indexOf(el) === idx;
+		});
+		console.log("filtering:", filtering);
+	}, []);
+
 	useEffect(() => {
 		//중복을 먼저 찾는다. 같은값일 경우 type에 이어서 넣는다.
 		const findDupe = twoDimensionalArr.reduce((acc: any, cur: any) => {
@@ -46,7 +58,6 @@ const Dupe = () => {
 			<h3>2차원 배열</h3>
 			<div>
 				{Object.entries(twoDimensional).map((el: any, idx: number) => {
-					console.log(el);
 					return (
 						<div key={idx}>
 							<p>{el[0]}</p>
