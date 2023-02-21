@@ -7,10 +7,11 @@ import React, {
 	useRef,
 	useState,
 } from "react";
+import { dummy } from "./data";
 import "./position.scss";
-import { getMousePosition } from "./utilites";
+import { getMousePosition, getTooltipPosition } from "./utilites";
 
-interface positionDummyProps {
+export interface positionDummyProps {
 	id: number;
 	item: string;
 	belongTo: string;
@@ -19,40 +20,11 @@ interface positionProps {
 	children?: React.ReactNode;
 	tooltip?: string;
 }
-const dummy: positionDummyProps[] = [
-	{ id: 1, item: "leftTop", belongTo: "top" },
-	{ id: 2, item: "top", belongTo: "top" },
-	{ id: 3, item: "rightTop", belongTo: "top" },
-	{ id: 4, item: "left", belongTo: "left" },
-	{ id: 5, item: "center", belongTo: "center" },
-	{ id: 6, item: "right", belongTo: "right" },
-	{ id: 7, item: "leftBottom", belongTo: "bottom" },
-	{ id: 8, item: "bottom", belongTo: "bottom" },
-	{ id: 9, item: "rightBottom", belongTo: "bottom" },
-];
 
 const Position: FC<positionProps> = ({
 	children,
 	tooltip = "I am tooltip",
 }) => {
-	const [isPositionBox, setIsPositionBox] = useState<boolean>(false);
-	const [positionContent, setPositionContent] = useState<
-		positionDummyProps | any
-	>({});
-	const [curPosition, setCurPostion] = useState<any>(null);
-	//getBoundingClientRect()
-	const handleClick = useCallback((list: positionDummyProps) => {
-		setIsPositionBox(true);
-		setPositionContent(list);
-		getRectFunc(list.item, list.id);
-	}, []);
-
-	const getRectFunc = (position: string, idx: number) => {
-		const rect = document.querySelector(".position-grid-col");
-		setCurPostion(rect?.getBoundingClientRect());
-		return rect;
-	};
-
 	////second
 	//const [hideElement, setHideElement] = useState<boolean>(false);
 	//const scrollRef = useRef<any>(null);
@@ -76,26 +48,36 @@ const Position: FC<positionProps> = ({
 		() => Array.from({ length: dummy.length }).map(() => createRef()),
 		[],
 	) as any;
+
 	const container = useRef<HTMLDivElement>(null);
+
 	const handleHover = useCallback(
 		(list: positionDummyProps, clientX: number) => {
 			const idx = list.id - 1;
-			const type = list.belongTo;
+			const type = list.item;
 			if (!container.current) return;
-			const { left, right, bottom, top } =
-				container.current.getBoundingClientRect();
-			//console.log("v:", clientX, left, right, bottom, top);
 
-			tooltipRef[idx].current.style.opacity = 1;
-			type === "top"
-				? (tooltipRef[idx].current.style.top = top - 40 - top / 2 + "px")
-				: type === "right"
-				? (tooltipRef[idx].current.style.right = right - right + 100 + "px")
-				: type === "left"
-				? (tooltipRef[idx].current.style.left = left - 10 - left / 2 + "px")
-				: type === "bottom"
-				? (tooltipRef[idx].current.style.bottom = bottom - bottom + 110 + "px")
-				: (tooltipRef[idx].current.style.top = top - top / 6 + "px");
+			const tooltip = tooltipRef[idx].current;
+			const { left, top } = getTooltipPosition(
+				container.current,
+				tooltipRef[idx].current,
+				type,
+				8,
+			);
+			tooltip.style.opacity = 1;
+			tooltip.style.left = `${left}px`;
+			tooltip.style.top = `${top}px`;
+			//const { left, right, bottom, top } =
+			//	container.current.getBoundingClientRect();
+			//type === "top"
+			//	? (tooltipRef[idx].current.style.top = top + "px")
+			//	: type === "right"
+			//	? (tooltipRef[idx].current.style.right = right + right + "px")
+			//	: type === "left"
+			//	? (tooltipRef[idx].current.style.left = left + "px")
+			//	: type === "bottom"
+			//	? (tooltipRef[idx].current.style.bottom = bottom + "px")
+			//	: (tooltipRef[idx].current.style.top = top - top / 6 + "px");
 		},
 		[tooltipRef],
 	);
@@ -106,35 +88,32 @@ const Position: FC<positionProps> = ({
 	};
 
 	return (
-		<div className="position-container">
-			<div className="position-scroll-box">
-				<section className="position-grid-box">
-					{dummy.map((list: positionDummyProps) => {
-						return (
-							<div
-								key={list.id}
-								ref={container}
-								className="position-grid-col"
-								onMouseLeave={() => {
-									handleMouseOver(list);
-								}}
-								onMouseEnter={({ clientX }) => handleHover(list, clientX)}
-								//onClick={() => handleClick(list)}
-							>
-								<>{list.item}</>
+		<>
+			<section className="position-container">
+				<div className="position-scroll-box">
+					<section className="position-grid-box" ref={container}>
+						{dummy.map((list: positionDummyProps) => {
+							return (
 								<div
-									className="position-box"
-									ref={tooltipRef[list.id - 1]}
-									//style={{ left: "30px" }}
+									key={list.id}
+									className="position-grid-col"
+									onMouseLeave={() => {
+										handleMouseOver(list);
+									}}
+									onMouseEnter={({ clientX }) => handleHover(list, clientX)}
+									//onClick={({ clientX }) => handleHover(list, clientX)}
 								>
-									{list.item}
+									<>{list.item}</>
+									<div className="position-box" ref={tooltipRef[list.id - 1]}>
+										{list.item}
+									</div>
 								</div>
-							</div>
-						);
-					})}
-				</section>
-			</div>
-		</div>
+							);
+						})}
+					</section>
+				</div>
+			</section>
+		</>
 
 		//<div style={{ height: "200vh", background: "#f9f9fb" }} ref={scrollRef}>
 		//	{!hideElement && (
