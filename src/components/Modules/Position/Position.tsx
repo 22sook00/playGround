@@ -1,15 +1,7 @@
-import React, {
-	createRef,
-	FC,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-} from "react";
+import React, { createRef, FC, useCallback, useMemo, useRef } from "react";
 import { dummy } from "./data";
 import "./position.scss";
-import { getMousePosition, getTooltipPosition } from "./utilites";
+import { getTooltipPosition } from "./utilites";
 
 export interface positionDummyProps {
 	id: number;
@@ -21,10 +13,7 @@ interface positionProps {
 	tooltip?: string;
 }
 
-const Position: FC<positionProps> = ({
-	children,
-	tooltip = "I am tooltip",
-}) => {
+const Position: FC<positionProps> = () => {
 	////second
 	//const [hideElement, setHideElement] = useState<boolean>(false);
 	//const scrollRef = useRef<any>(null);
@@ -101,7 +90,6 @@ const Position: FC<positionProps> = ({
 										handleMouseOver(list);
 									}}
 									onMouseEnter={({ clientX }) => handleHover(list, clientX)}
-									//onClick={({ clientX }) => handleHover(list, clientX)}
 								>
 									<>{list.item}</>
 									<div className="position-box" ref={tooltipRef[list.id - 1]}>
@@ -121,28 +109,6 @@ const Position: FC<positionProps> = ({
 		//			<span>스크롤을 일정 수치만큼 내리면 이 영역은 사라집니다!</span>
 		//		</div>
 		//	)}
-		//</div>
-		//<div className="tailwindContinaer">
-		//	<div
-		//		ref={container}
-		//		onMouseEnter={({ clientX }) => {
-		//			if (!tooltipRef.current || !container.current) return;
-		//			const { left, right, bottom, top } =
-		//				container.current.getBoundingClientRect();
-		//			//tooltipRef.current.style.left = clientX - 0 + "px";
-		//			//tooltipRef.current.style.right = clientX - 0 + "px";
-		//			//tooltipRef.current.style.bottom = clientX - 0 + "px";
-		//			tooltipRef.current.style.top = clientX - 200 + "px";
-		//			console.log("top:", tooltipRef.current.style.top);
-		//		}}
-		//		className="tailwindRelative"
-		//	>
-		//		<button className="tailwindbtn">Show Me Tooltip</button>
-
-		//		<span ref={tooltipRef} className="tailwindVisible">
-		//			{tooltip}
-		//		</span>
-		//	</div>
 		//</div>
 	);
 };
