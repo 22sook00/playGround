@@ -1,5 +1,4 @@
 //ver1
-
 export interface FakeMouseElement {
 	getBoundingClientRect: () => {
 		top: number;

@@ -4,6 +4,7 @@ import "./position.scss";
 import { getTooltipPosition } from "./utilites";
 
 export interface positionDummyProps {
+
 	id: number;
 	item: string;
 	belongTo: string;
@@ -14,6 +15,7 @@ interface positionProps {
 }
 
 const Position: FC<positionProps> = () => {
+
 	////second
 	//const [hideElement, setHideElement] = useState<boolean>(false);
 	//const scrollRef = useRef<any>(null);
@@ -67,6 +69,7 @@ const Position: FC<positionProps> = () => {
 			//	: type === "bottom"
 			//	? (tooltipRef[idx].current.style.bottom = bottom + "px")
 			//	: (tooltipRef[idx].current.style.top = top - top / 6 + "px");
+
 		},
 		[tooltipRef],
 	);
