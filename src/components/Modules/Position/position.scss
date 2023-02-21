@@ -1,3 +1,26 @@
+.position-tab {
+	display: flex;
+	margin-bottom: 30px;
+	box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 1px 0 rgba(9, 30, 66, 0.31);
+	border-radius: 8px;
+	align-items: center;
+	justify-content: space-around;
+	overflow: hidden;
+	div {
+		height: 100%;
+		width: 100%;
+		padding: 12px;
+		text-align: center;
+		cursor: pointer;
+		transition: all 0.3s;
+		//background-color: rgb(30, 76, 168);
+		&:hover,
+		&:focus {
+			background-color: rgba(16, 101, 186, 0.2);
+		}
+	}
+}
+
 .position-container {
 	width: 100%;
 	display: flex;
@@ -38,8 +61,7 @@
 	width: 100px;
 	border-radius: 8px;
 	height: 40px;
-
-	transition: all 0.3s;
+	transition: all 0.5s;
 	background-color: rgb(39, 119, 210);
 	color: white;
 	display: flex;
@@ -47,40 +69,4 @@
 	justify-content: center;
 	flex-direction: column;
 	opacity: 0;
-	//&:hover {
-	//	opacity: 1;
-	//}
-}
-
-.tailwindContinaer {
-	margin: 0 auto;
-	max-width: 400px;
-	padding: 40px;
-	box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 1px 0 rgba(9, 30, 66, 0.31);
-}
-.tailwindRelative {
-	position: relative;
-	display: inline-block;
-	border: 3px solid;
-}
-.tailwindbtn {
-	box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 1px 0 rgba(9, 30, 66, 0.31);
-	padding: 12px;
-	border-radius: 8px;
-}
-.tailwindVisible {
-	//className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition bg-blue-500 text-white p-1 rounded
-	//absolute top-full mt-2 whitespace-nowrap"
-	position: fixed;
-	width: 100px;
-	border-radius: 8px;
-	height: 40px;
-
-	transition: all 0.3s;
-	background-color: rgb(39, 119, 210);
-	color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
 }
