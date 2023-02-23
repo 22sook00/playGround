@@ -1,3 +1,4 @@
+import ProgressBar from "components/Common/ProgressBar/ProgressBar";
 import React, { useCallback, useState } from "react";
 import SubHeader from "../components/Common/Headers/SubHeader";
 import Layout from "../components/Common/Layout/Layout";
@@ -16,10 +17,11 @@ export interface StyleProps {
 
 const StylePage = () => {
 	const styleData: StyleProps[] = [
-		{ id: 1, type: "ping", component: <Ping /> },
-		{ id: 2, type: "spin", component: <Spin /> },
-		{ id: 3, type: "pulse", component: <Pulse /> },
-		{ id: 4, type: "bounce", component: <Bounce /> },
+		{ id: 1, type: "progressBar", component: <ProgressBar /> },
+		{ id: 2, type: "ping", component: <Ping /> },
+		{ id: 3, type: "spin", component: <Spin /> },
+		{ id: 4, type: "pulse", component: <Pulse /> },
+		{ id: 5, type: "bounce", component: <Bounce /> },
 	];
 
 	const [selectMenu, setSelectMenu] = useState<StyleProps>(styleData[0]);
@@ -30,6 +32,7 @@ const StylePage = () => {
 		) as StyleProps;
 		setSelectMenu(selectType);
 	}, []);
+
 	return (
 		<Layout>
 			<SubHeader title="Style" desc={"All style would be scss 🤭"} />
