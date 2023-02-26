@@ -1,5 +1,5 @@
 import Dupe from "components/Algorithm/Dupe";
-import Hanoi from "components/Algorithm/Hanoi";
+import Hanoi from "components/Algorithm/Hanoi/Hanoi";
 import SubHeader from "components/Common/Headers/SubHeader";
 import Layout from "components/Common/Layout/Layout";
 import Tag from "components/Common/Tag/Tag";
