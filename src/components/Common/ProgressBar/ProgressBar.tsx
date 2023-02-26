@@ -16,6 +16,12 @@ const ProgressBar = () => {
 			return () => window.removeEventListener("scroll", onScroll);
 		}, []);
 		const ratio = 100 - (scrollY / pageHeight) * 100;
+		console.log(
+			scrollY,
+			"pageHeight:",
+			document.body.scrollHeight,
+			document.body.clientHeight,
+		);
 		return <S.ScrollTracker ratio={ratio} />;
 	}
 	return (

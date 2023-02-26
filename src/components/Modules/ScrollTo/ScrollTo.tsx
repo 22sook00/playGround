@@ -41,7 +41,7 @@ const ScrollTo = () => {
 	//const handleScroll = () => {
 	//	console.log("scrolled");
 	//};
-	console.log("btnStatus:", btnStatus);
+	//console.log("btnStatus:", btnStatus);
 
 	const sliceDummy = dummyData.slice(0, 3);
 	const [navNumber, setNavNumber] = useState(1);
@@ -67,12 +67,12 @@ const ScrollTo = () => {
 		[comp1, comp2, comp3],
 	);
 	const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-		console.log("??", e);
+		//console.log("??", e);
 		setSearchText(e.target.value);
 	}, []);
 	const handleSearchDebounceHook = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
-			console.log("??", e);
+			//console.log("??", e);
 			setSearchText1(e.target.value);
 		},
 		[],
