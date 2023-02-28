@@ -1,14 +1,88 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "../Algorithm.style";
 
 const Hanoi = () => {
 	//hanoi 식
-	const [desc, setDesc] = useState(4);
-	//const hanoiFunc = () => {
-	//	if()
-	//}
-	const descArr = Array.from({ length: desc }, (v, i) => i + 1).reverse();
-	console.log("descArr", descArr);
+	const [towerArr, setTowerArr] = useState<number[]>([]);
+	const descArr = Array.from({ length: 4 }, (v, i) => i + 1).reverse();
+
+	const [box, setBox] = useState<any>([]);
+	const [targets, setTargets] = useState<any>([]);
+
+	const [posX, setPosX] = useState<number>(0);
+	const [posY, setPosY] = useState<number>(0);
+	const [originalX, setOriginalX] = useState<number>(0);
+	const [originalY, setOriginalY] = useState<number>(0);
+
+	const hanoiFunc = (num: number, A: any, B: any, C: any) => {
+		if (num === 1) {
+			return setTowerArr([A, B]);
+		}
+
+		hanoiFunc(num - 1, A, B, C);
+		setTowerArr([A, C]);
+		hanoiFunc(num - 1, B, C, A);
+	};
+
+	const handleMove = (num: number) => {
+		hanoiFunc(num, 1, 3, 2);
+		return console.log("towerArr:", towerArr);
+	};
+
+	const stockContainer = useRef<any>();
+
+	useEffect(() => {
+		const box = stockContainer.current.getBoundingClientRect();
+		setBox({
+			top: box.top,
+			left: box.left,
+			bottom: box.top + box.height,
+			right: box.left + box.width,
+		});
+	}, []);
+	//https://ko.javascript.info/mouse-drag-and-drop
+	//https://velog.io/@yunsungyang-omc/React-Drag-Drop-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+	//https://velog.io/@dosilv/React-Drag-and-Drop-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+	//참고하여 드래그 구현하기
+
+	const dragStartHandler = (e: any) => {
+		const img = new Image();
+		e.dataTransfer.setDragImage(img, 0, 0);
+		setPosX(e.clientX);
+		setPosY(e.clientY);
+		setOriginalX(e.target.offsetLeft);
+		setOriginalY(e.target.offsetTop);
+	};
+
+	const dragHandler = (e: any) => {
+		e.target.style.left = `${e.target.offsetLeft + e.clientX - posX}px`;
+		e.target.style.top = `${e.target.offsetTop + e.clientY - posY}px`;
+		setPosX(e.clientX);
+		setPosY(e.clientY);
+	};
+
+	const dragEndHandler = (e: any) => {
+		if (
+			box.left < e.clientX &&
+			e.clientX < box.right &&
+			box.top < e.clientY &&
+			e.clientY < box.bottom
+		) {
+			setTargets((targets: any) => {
+				const newTargets = [...targets];
+				newTargets.push({
+					id: parseInt(e.timeStamp),
+					top: e.target.offsetTop + e.clientY - posY,
+					left: e.target.offsetLeft + e.clientX - posX,
+				});
+				return newTargets;
+			});
+		}
+
+		e.target.style.left = `${originalX}px`;
+		e.target.style.top = `${originalY}px`;
+	};
+
 	return (
 		<S.HanoiContainer>
 			<S.HanoiInfo>
@@ -30,7 +104,15 @@ const Hanoi = () => {
 					<S.HanoiPillars>
 						<article />
 						{descArr.map((el, idx: number) => {
-							return <S.HanoiDesc key={idx} widthProps={el}></S.HanoiDesc>;
+							return (
+								<S.HanoiDesc
+									ref={stockContainer}
+									//onClick={() => handleMove(el)}
+									onMouseOver={(e: any) => dragEndHandler(e)}
+									key={idx}
+									widthProps={el}
+								></S.HanoiDesc>
+							);
 						})}
 
 						<h3>A</h3>
