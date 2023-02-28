@@ -1,11 +1,109 @@
 @keyframes pulse {
 	0%,
 	100% {
-		opacity: 1;
+		transform: 1;
 	}
 	50% {
 		opacity: 0.5;
 	}
+}
+@keyframes loading {
+	0% {
+		transform: translateX(0);
+	}
+	50%,
+	100% {
+		transform: translateX(460px);
+	}
+}
+
+.skeleton-item {
+	display: flex;
+	align-items: center;
+	margin: 15px 0;
+	padding: 20px;
+	border: 0.2px solid #e5e7eb;
+	border-radius: 4px;
+	position: relative;
+}
+
+.skeleton-img::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 100%;
+	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
+	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+}
+
+.skeleton-img {
+	width: 80px;
+	height: 80px;
+	border-radius: 8px;
+	background: #e1e9ee;
+	position: relative;
+	overflow: hidden;
+}
+
+.skeleton-info {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 20px;
+}
+
+.skeleton-name {
+	width: 70%;
+	height: 12px;
+	background: #e1e9ee;
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	margin-bottom: 8px;
+}
+
+.skeleton-name::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 100%;
+	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
+	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+}
+
+.skeleton-email {
+	width: 65%;
+	height: 8px;
+	background: #e1e9ee;
+	margin-top: 8px;
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.skeleton-email::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 100%;
+	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
+	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+}
+.skeleton-desc {
+	width: 45%;
+	height: 8px;
+	background: #e1e9ee;
+	margin-top: 8px;
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
 }
 .pulse-container {
 	border: 0.2px solid #e5e7eb;
@@ -22,14 +120,14 @@
 }
 .pulse-circle-item {
 	border-radius: 100%;
-	background-color: #e2e8f0;
+	background-color: #e1e9ee;
 	width: 70px;
 	height: 70px;
 }
 .pulse-each-items {
 	height: 8px;
 	border-radius: 4px;
-	background-color: #e2e8f0;
+	background-color: #e1e9ee;
 }
 .pulse-space-wrapper {
 	margin-left: 1.5rem;
