@@ -1,4 +1,14 @@
-import React, { createRef, FC, useCallback, useMemo, useRef } from "react";
+import AtlassianDropdown from "components/Common/Dropdown/AtlassianDropdown";
+import Dropdown from "components/Common/Dropdown/Dropdown";
+import React, {
+	useEffect,
+	useState,
+	createRef,
+	FC,
+	useCallback,
+	useMemo,
+	useRef,
+} from "react";
 import { dummy } from "./data";
 import "./position.scss";
 import { getTooltipPosition } from "./utilites";
@@ -14,23 +24,9 @@ interface positionProps {
 }
 
 const Position: FC<positionProps> = () => {
-	////second
-	//const [hideElement, setHideElement] = useState<boolean>(false);
-	//const scrollRef = useRef<any>(null);
-
-	//useEffect(() => {
-	//	if (!scrollRef.current) return;
-	//	window.addEventListener("scroll", yScrollEvent);
-	//	return () => {
-	//		window.removeEventListener("scroll", yScrollEvent);
-	//	};
-	//}, []);
-
-	//const yScrollEvent = () => {
-	//	const scroll = scrollRef.current.getBoundingClientRect();
-	//	//console.log(scroll);
-	//	setHideElement(scroll.top <= -100);
-	//};
+	//dropdown option location by position
+	const [select, setSelect] = useState<any>([]);
+	const [isOpenDropdown, setIsOpenDropdown] = useState<boolean>(false);
 
 	//third
 	const tooltipRef = useMemo(
@@ -56,17 +52,6 @@ const Position: FC<positionProps> = () => {
 			tooltip.style.opacity = 1;
 			tooltip.style.left = `${left}px`;
 			tooltip.style.top = `${top}px`;
-			//const { left, right, bottom, top } =
-			//	container.current.getBoundingClientRect();
-			//type === "top"
-			//	? (tooltipRef[idx].current.style.top = top + "px")
-			//	: type === "right"
-			//	? (tooltipRef[idx].current.style.right = right + right + "px")
-			//	: type === "left"
-			//	? (tooltipRef[idx].current.style.left = left + "px")
-			//	: type === "bottom"
-			//	? (tooltipRef[idx].current.style.bottom = bottom + "px")
-			//	: (tooltipRef[idx].current.style.top = top - top / 6 + "px");
 		},
 		[tooltipRef],
 	);
@@ -77,8 +62,8 @@ const Position: FC<positionProps> = () => {
 	};
 
 	return (
-		<>
-			<section className="position-container">
+		<div className="position-container">
+			<section className="position-wrapper">
 				<div className="position-scroll-box">
 					<section className="position-grid-box" ref={container}>
 						{dummy.map((list: positionDummyProps) => {
@@ -101,15 +86,19 @@ const Position: FC<positionProps> = () => {
 					</section>
 				</div>
 			</section>
-		</>
-
-		//<div style={{ height: "200vh", background: "#f9f9fb" }} ref={scrollRef}>
-		//	{!hideElement && (
-		//		<div style={{ position: "fixed", background: "#fff" }}>
-		//			<span>스크롤을 일정 수치만큼 내리면 이 영역은 사라집니다!</span>
-		//		</div>
-		//	)}
-		//</div>
+			<section className="position-wrapper">
+				<AtlassianDropdown />
+				<Dropdown
+					select={select}
+					options={dummy.map((el) => {
+						return { name: el.item };
+					})}
+					isOpenDropdown={isOpenDropdown}
+					setIsOpenDropdown={setIsOpenDropdown}
+					handleSelect={() => setIsOpenDropdown(false)}
+				/>
+			</section>
+		</div>
 	);
 };
 
