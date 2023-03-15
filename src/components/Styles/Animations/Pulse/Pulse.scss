@@ -13,7 +13,7 @@
 	}
 	50%,
 	100% {
-		transform: translateX(460px);
+		transform: translateX(500px);
 	}
 }
 
@@ -32,10 +32,10 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 30px;
+	width: 50px;
 	height: 100%;
 	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
-	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+	animation: loading 3s cubic-bezier(0.5, 0, 0.25, 1) infinite;
 }
 
 .skeleton-img {
@@ -70,10 +70,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 40px;
+	width: 60px;
 	height: 100%;
 	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
-	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+	animation: loading 3s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+	//animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
 .skeleton-email {
@@ -91,10 +92,10 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 40px;
+	width: 60px;
 	height: 100%;
 	background: linear-gradient(to right, #e1e9ee, #f2f8fc, #e1e9ee);
-	animation: loading 2s cubic-bezier(0.5, 0, 0.25, 1) infinite;
+	animation: loading 3s cubic-bezier(0.5, 0, 0.25, 1) infinite;
 }
 .skeleton-desc {
 	width: 45%;
